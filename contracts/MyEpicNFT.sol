@@ -16,7 +16,7 @@ contract MyEpicNFT is ERC721URIStorage {
     Counters.Counter private _tokenIds;
 
     // Keep track of minted NFTs
-    uint256 MAX_MINTS = 5;
+    uint256 MAX_MINTS = 50;
     uint256 totalMinted = 0;
 
     // Make a baseSvg variable here that all our NFTs can use
@@ -25,10 +25,10 @@ contract MyEpicNFT is ERC721URIStorage {
     string svgPartTwo = "'/><text x='50%' y='50%' class='base' dominant-baseline='middle' text-anchor='middle'>";
 
     // Random arrays with their own theme of random words.
-    string[] firstWords = ["Loving", "Wise", "Noxious", "Hulking", "Third", "Merciful", "Cloudy", "Taboo", "Four", "Royal", "Encouraging", "Mad", "Unfair", "Onerous", "Nappy"];
-    string[] secondWords = ["Onion", "Vermicelli", "Kale", "Cream", "Passata", "Garlic", "Pepper", "Chorizo", "Chocolate", "Fish", "Tofu", "Panini", "Stew", "Leaf"];
-    string[] thirdWords = ["Menu", "Atmosphere", "Vehicle", "Length", "Disease", "Worker", "Artisan", "Steak", "Hall", "Meat", "Payment", "Cluster", "Node", "Resource", "Database"];
-    string[] colors = ["#ff0000", "#08C2A8", "#000000", "#ffff00", "#00e6e6", "#00df38"];
+    string[] firstWords = ["Loving", "Onerous", "Nappy", "Royal", "Third", "Merciful", "Cloudy", "Mad", "Silly", "Hulking", "Encouraging", "Taboo", "Unfair", "Wise", "Noxious"];
+    string[] secondWords = ["Chorizo", "Vermicelli", "Leaf", "Cream", "Passata", "Fish", "Pepper", "Onion", "Tofu", "Garlic", "Chocolate", "Panini", "Stew", "Calamari"];
+    string[] thirdWords = ["Node", "Artisan", "Vehicle", "Database", "Disease", "Worker", "Hall", "Steak", "Atmosphere", "Meat", "Payment", "Cluster", "Menu", "Resource", "Length"];
+    string[] colors = ["#ffff00", "#00df38", "#000000", "#ff0000", "#00e6e6", "#08C2A8"];
 
     event NewEpicNFTMinted(address sender, uint256 tokenId);
 

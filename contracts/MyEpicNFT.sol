@@ -15,6 +15,10 @@ contract MyEpicNFT is ERC721URIStorage {
     using Counters for Counters.Counter;
     Counters.Counter private _tokenIds;
 
+    // Keep track of minted NFTs
+    uint256 MAX_MINTS = 5;
+    uint256 totalMinted = 0;
+
     // Make a baseSvg variable here that all our NFTs can use
     // SVGs will have a randomly generated word
     string svgPartOne = "<svg xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='xMinYMin meet' viewBox='0 0 350 350'><style>.base { fill: white; font-family: serif; font-size: 24px; }</style><rect width='100%' height='100%' fill='";
@@ -62,10 +66,20 @@ contract MyEpicNFT is ERC721URIStorage {
         return uint256(keccak256(abi.encodePacked(input)));
     }
 
+    function getMaxMints() public view returns (uint256) {
+        return MAX_MINTS;
+    }
+
+    function getTotalMinted() public view returns (uint256) {
+        return totalMinted;
+    }
+
     // Function a user will hit to make/mint their NFT
     function makeAnEpicNFT() public {
         // Get the current token id, starting at 0
         uint256 newItemId = _tokenIds.current();
+
+        require(totalMinted < MAX_MINTS, "Cannot mint anymore NFTs, limit reached!");
 
         // Randomly grab one word from each of the three arrays.
         string memory first = pickRandomFirstWord(newItemId);
@@ -99,9 +113,9 @@ contract MyEpicNFT is ERC721URIStorage {
             abi.encodePacked("data:application/json;base64,", json)
         );
 
-        console.log("\n--------------------");
-        console.log(finalTokenUri);
-        console.log("--------------------\n");
+        // console.log("\n--------------------");
+        // console.log(finalTokenUri);
+        // console.log("--------------------\n");
 
         console.log("\n--------------------");
         console.log(
@@ -128,6 +142,8 @@ contract MyEpicNFT is ERC721URIStorage {
 
         // Increment the counter for when the next NFT is minted
         _tokenIds.increment();
+
+        totalMinted++;
 
         emit NewEpicNFTMinted(msg.sender, newItemId);
     }

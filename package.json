@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "npx hardhat run scripts/run.js"
+    "start": "npx hardhat run scripts/run.js",
+    "deploy-rinkeby": "npx hardhat run scripts/deploy.js --network rinkeby"
   },
   "keywords": [],
   "author": "",

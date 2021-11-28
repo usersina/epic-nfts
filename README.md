@@ -1,15 +1,23 @@
-# Basic Sample Hardhat Project
+# Epic NFTs Contract
 
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, a sample script that deploys that contract, and an example of a task implementation, which simply lists the available accounts.
+This project uses Hardhat to create a **Solitidy** contract to be later deployed to a **blockchain**.
 
-Try running some of the following tasks:
+You can check a sample [deployed contract here!](https://rinkeby.etherscan.io/address/0x188358414f296530692127399a1e8f134d213bdd)
 
-```shell
-npx hardhat accounts
-npx hardhat compile
-npx hardhat clean
-npx hardhat test
-npx hardhat node
-node scripts/sample-script.js
-npx hardhat help
+<div align="center">
+
+![](/media/testnet-etherscan.JPG)
+
+</div>
+
+You can test the contract locally with:
+```BASH
+npm start
 ```
+
+Once you're ready for deployment, add a `.env` following the example and deploy to **testnet**.
+```
+npm run deploy-rinkeby
+```
+
+You can also create your own deployments scripts if you wish to deploy to **mainnet**, just beware of **GAS fees**.
